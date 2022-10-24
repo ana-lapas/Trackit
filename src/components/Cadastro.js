@@ -4,69 +4,69 @@ import styled from "styled-components"
 import axios from "axios"
 import logo from "./logo.png";
 
-function Cadastro(){
-    const [form, setForm] = useState({ email: "", name: "",  image: "", password: "" })
-    const navigate = useNavigate()
-  
-    function handleForm(e) {
-      const {name, value} = e.target
-      setForm({...form, [name]: value})
-    }
-      function createAccount() {
-        const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up"
-        const body = {...form}
-    
-        const promise = axios.post(URL, body)
-    
-        promise.then((res) => {
-          console.log(res)
-          navigate("/")
-        })
-    
-        promise.catch((err) => {
-          alert(err.response.data.message)
-        })
-      }
-      return(
-      <Container>
-        <img src={logo} alt="" />
-        <input
-          name="email"
-          value={form.email}
-          onChange={handleForm}
-          type="text"
-          placeholder="E-mail"
-        />
-        <input
-          name="password"
-          value={form.password}
-          onChange={handleForm}
-          type="password"
-          placeholder="Senha"
-        />
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleForm}
-          type="text"
-          placeholder="Nome"
-        /> 
-        <input
-          name="image"
-          value={form.image}
-          onChange={handleForm}
-          type="text"
-          placeholder="Imagem"
-        />
-        <button onClick={createAccount}>Cadastrar</button>
-        <Link to="/"><p>Já tem uma conta? Faça login</p></Link>
-      </Container>)
+function Cadastro() {
+  const [form, setForm] = useState({ email: "", name: "", image: "", password: "" })
+  const navigate = useNavigate()
+
+  function handleForm(e) {
+    const { name, value } = e.target
+    setForm({ ...form, [name]: value })
+  }
+  function createAccount() {
+    const URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up"
+    const body = { ...form }
+
+    const promise = axios.post(URL, body)
+
+    promise.then((res) => {
+      navigate("/")
+    })
+
+    promise.catch((err) => {
+      alert(err.response.data.message)
+    })
+  }
+  return (
+    <Container>
+      <img src={logo} alt="" />
+      <input
+        name="email"
+        value={form.email}
+        onChange={handleForm}
+        type="text"
+        placeholder="E-mail"
+      />
+      <input
+        name="password"
+        value={form.password}
+        onChange={handleForm}
+        type="password"
+        placeholder="Senha"
+      />
+      <input
+        name="name"
+        value={form.name}
+        onChange={handleForm}
+        type="text"
+        placeholder="Nome"
+      />
+      <input
+        name="image"
+        value={form.image}
+        onChange={handleForm}
+        type="text"
+        placeholder="Imagem"
+      />
+      <button onClick={createAccount}>Cadastrar</button>
+      <Link to="/"><p>Já tem uma conta? Faça login</p></Link>
+    </Container>)
 }
 
 export default Cadastro;
 
 const Container = styled.div`
-  width: 100%;
+width: 100%;
+height: 667px;
   padding: 31px;
   display: flex;
   justify-content: center;

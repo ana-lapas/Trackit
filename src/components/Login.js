@@ -73,14 +73,13 @@ function LoginI() {
 export default LoginI;
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: 667px;
   padding: 31px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #ffffff;
-  margin-top: 70px;
   font-family: 'Lexend-deca', sans-serif;
 
   form {
